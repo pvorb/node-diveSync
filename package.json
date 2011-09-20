@@ -1,0 +1,24 @@
+{
+  "name": "diveSync",
+  "description":
+    "walk through directory trees and apply an action on every file (synchronous dive)",
+  "author": "Paul Vorbach <paul@vorb.de>",
+  "version": "0.0.0",
+  "main": "./lib/diveSync.js",
+  "repository": "git://github.com/pvorb/node-diveSync.git",
+  "tags": [
+    "recursive",
+    "file walking",
+    "directories",
+    "sync"
+  ],
+  "bugs": {
+    "web": "http://github.com/pvorb/node-diveSync/issues"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "append": ">=0.1.0"
+  }
+}
