@@ -12,7 +12,7 @@ diveSync(process.cwd(), function(err, file) {
 });
 ```
 
-This will list all files in your current working directory without an order.
+This will list all files in your current working directory. The function call blocks until all files are handled.
 
 You may also apply options to the function call.
 
