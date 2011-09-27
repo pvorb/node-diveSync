@@ -1,6 +1,6 @@
 **diveSync** is a tiny module for node that is able to recursively walk (_„dive“_) a directory tree. **diveSync** is the synchronous version of [dive](//github.com/pvorb/node-dive).
 
-## Example
+## Usage
 
 ```javascript
 var diveSync = require("diveSync");
@@ -17,18 +17,17 @@ This will list all files in your current working directory. The function call bl
 You may also apply options to the function call.
 
 ```javascript
-dive(dir, opt, action);
+dive(dir[, opt], action);
 ```
 
 The default options are
 
 ```javascript
 {
-  recursive: true,  // If set to false, this will ignore subdirectories.
-  all: false        // If set to true, this will show "dot files" and
-                    // files in "dot directories", e.g. ".gitinore" or
-                    // ".git/HEAD".
+  recursive: true,    // - If set to false, this will ignore subdirectories.
+  all: false,         // - If set to true, this will show "dot files" and
+                      //   files in "dot directories", e.g. ".gitinore" or
+                      //   ".git/HEAD".
+  directories: false  // - If set to true, this will show directories, too.
 }
 ```
-
-This argument is optional.

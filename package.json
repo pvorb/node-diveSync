@@ -2,9 +2,9 @@
   "name": "diveSync",
   "description":
     "walk through directory trees and apply an action on every file (synchronous dive)",
-  "author": "Paul Vorbach <paul@vorb.de>",
-  "version": "0.0.0",
-  "main": "./lib/diveSync.js",
+  "author": "Paul Vorbach <paul@vorb.de> (https://vorb.de)",
+  "version": "0.1.0",
+  "main": "diveSync.js",
   "repository": "git://github.com/pvorb/node-diveSync.git",
   "tags": [
     "recursive",

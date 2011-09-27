@@ -10,7 +10,8 @@ var diveSync = function(dir, opt, action) {
   // default options
   var defaultOpt = {
     recursive: true,
-    all: false
+    all: false,
+    directories: false
   };
 
   // ensure opt is an object
@@ -32,6 +33,10 @@ var diveSync = function(dir, opt, action) {
 
       // If the file is a directory
       if (stat && stat.isDirectory()) {
+        // Call the action if enabled for directories
+        if (opt.directories)
+          action(null, path);
+
         // Dive into the directory
         if (opt.recursive)
           dive(path, opt, action);
