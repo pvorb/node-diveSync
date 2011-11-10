@@ -39,7 +39,7 @@ var diveSync = function(dir, opt, action) {
 
         // Dive into the directory
         if (opt.recursive)
-          dive(path, opt, action);
+          diveSync(path, opt, action);
       } else {
         // Call the action
         action(null, path);
