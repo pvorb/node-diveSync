@@ -14,7 +14,7 @@
     "sync"
   ],
   "bugs": {
-    "web": "http://github.com/pvorb/node-diveSync/issues"
+    "url": "http://github.com/pvorb/node-diveSync/issues"
   },
   "engines": {
     "node": ">=0.4.0"
