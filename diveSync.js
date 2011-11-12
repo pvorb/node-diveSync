@@ -1,18 +1,21 @@
 var fs = require('fs'),
     append = require('append');
 
-// General function
+// default options
+var defaultOpt = {
+  recursive: true,
+  all: false,
+  directories: false,
+  filter: function filter() {
+    return true;
+  }
+};
+
+// general function
 var diveSync = function(dir, opt, action) {
 
   // action is the last argument
   action = arguments[arguments.length - 1];
-
-  // default options
-  var defaultOpt = {
-    recursive: true,
-    all: false,
-    directories: false
-  };
 
   // ensure opt is an object
   if (typeof opt != 'object')
@@ -20,32 +23,43 @@ var diveSync = function(dir, opt, action) {
 
   opt = append(defaultOpt, opt);
 
-  // Read the directory
-  var list = fs.readdirSync(dir);
+  // apply filter
+  if (!opt.filter(dir, true)) return;
 
-  // For every file in the list
-  list.forEach(function(file) {
-    if (opt.all || file[0] != '.') {
-      // Full path of that file
-      var path = dir + '/' + file;
-      // Get the file's stats
-      var stat = fs.statSync(path);
+  try {
+    // read the directory
+    var list = fs.readdirSync(dir);
 
-      // If the file is a directory
-      if (stat && stat.isDirectory()) {
-        // Call the action if enabled for directories
-        if (opt.directories)
+    // for every file in the list
+    list.forEach(function (file) {
+      if (opt.all || file[0] != '.') {
+        // full path of that file
+        var path = dir + '/' + file;
+
+        // get the file's stats
+        var stat = fs.statSync(path);
+
+        // if the file is a directory
+        if (stat && stat.isDirectory()) {
+          // call the action if enabled for directories
+          if (opt.directories)
+            action(null, path);
+
+          // dive into the directory
+          if (opt.recursive)
+            diveSync(path, opt, action);
+        } else {
+          // apply filter
+          if (!opt.filter(path, false)) return;
+
+          // call the action
           action(null, path);
-
-        // Dive into the directory
-        if (opt.recursive)
-          diveSync(path, opt, action);
-      } else {
-        // Call the action
-        action(null, path);
+        }
       }
-    }
-  });
+    });
+  } catch(err) {
+    action(err);
+  }
 };
 
 module.exports = diveSync;

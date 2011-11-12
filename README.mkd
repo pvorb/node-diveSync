@@ -29,5 +29,13 @@ The default options are
                       //   files in "dot directories", e.g. ".gitinore" or
                       //   ".git/HEAD".
   directories: false  // - If set to true, this will show directories, too.
+  filter: function filter(path, dir) { return true; }
+                      // - Function that returns true for all paths that should
+                      //   not be ignored.
 }
 ```
+
+`filter` takes two arguments `(path, dir)`. `path` defines the path to file in
+the file system. `dir` is `true`, if `path` is a directory, otherwise `false`.
+
+You can use this to filter out specific files or directories by their pathname.

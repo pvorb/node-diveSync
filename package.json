@@ -4,7 +4,7 @@
     "walk through directory trees and apply an action on every file (synchronous dive)",
   "author": "Paul Vorbach <paul@vorb.de> (https://vorb.de)",
   "contributors": [ "Dave Geddes" ],
-  "version": "0.1.1",
+  "version": "0.2.1",
   "main": "diveSync.js",
   "repository": "git://github.com/pvorb/node-diveSync.git",
   "tags": [
