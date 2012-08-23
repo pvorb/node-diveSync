@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/pvorb/node-diveSync.png)](http://travis-ci.org/pvorb/node-diveSync)
 **diveSync** is a tiny module for node that is able to recursively walk (_„dive“_) a directory tree. **diveSync** is the synchronous version of [dive](//github.com/pvorb/node-dive).
 
 ## Usage
