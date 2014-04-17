@@ -1,18 +1,17 @@
 var fs = require('fs'),
     append = require('append');
 
-// default options
-var defaultOpt = {
-  recursive: true,
-  all: false,
-  directories: false,
-  filter: function filter() {
-    return true;
-  }
-};
-
 // general function
 var diveSync = function(dir, opt, action) {
+  // default options
+  var defaultOpt = {
+    recursive: true,
+    all: false,
+    directories: false,
+    filter: function filter() {
+      return true;
+    }
+  };
 
   // action is the last argument
   action = arguments[arguments.length - 1];
