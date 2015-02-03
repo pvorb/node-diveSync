@@ -30,7 +30,7 @@ var diveSync = function(dir, opt, action) {
     var list = fs.readdirSync(dir);
 
     // for every file in the list
-    list.forEach(function (file) {
+    list.some(function (file) {
       if (opt.all || file[0] != '.') {
         // full path of that file
         var path = dir + '/' + file;
@@ -42,7 +42,7 @@ var diveSync = function(dir, opt, action) {
         if (stat && stat.isDirectory()) {
           // call the action if enabled for directories
           if (opt.directories)
-            action(null, path);
+            return action(null, path) === false;
 
           // dive into the directory
           if (opt.recursive)
@@ -52,7 +52,7 @@ var diveSync = function(dir, opt, action) {
           if (!opt.filter(path, false)) return;
 
           // call the action
-          action(null, path);
+          return action(null, path) === false;
         }
       }
     });
