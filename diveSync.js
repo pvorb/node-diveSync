@@ -42,7 +42,7 @@ var diveSync = function(dir, opt, action) {
         if (stat && stat.isDirectory()) {
           // call the action if enabled for directories
           if (opt.directories)
-            return action(null, path) === false;
+            if (action(null, path) === false) return false;
 
           // dive into the directory
           if (opt.recursive)
