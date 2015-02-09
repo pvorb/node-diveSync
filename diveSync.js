@@ -30,7 +30,7 @@ var diveSync = function(dir, opt, action) {
     var list = fs.readdirSync(dir);
 
     // for every file in the list
-    list.some(function (file) {
+    list.sort().some(function (file) {
       if (opt.all || file[0] != '.') {
         // full path of that file
         var path = dir + '/' + file;
