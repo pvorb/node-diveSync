@@ -3,7 +3,8 @@
   "description": "walk through directory trees and apply an action on every file (synchronous dive)",
   "author": "Paul Vorbach <paul@vorb.de> (https://vorb.de)",
   "contributors": [
-    "Dave Geddes"
+    "Dave Geddes",
+    "Chris Marsh"
   ],
   "version": "0.2.1",
   "main": "diveSync.js",
