@@ -6,7 +6,7 @@
     "Dave Geddes",
     "Chris Marsh"
   ],
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "diveSync.js",
   "repository": "git://github.com/pvorb/node-diveSync.git",
   "tags": [
