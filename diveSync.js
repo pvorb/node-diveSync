@@ -1,4 +1,5 @@
 var fs = require('fs'),
+    OS_PATH_SEP = require('path').sep,
     append = require('append');
 
 // general function
@@ -33,7 +34,7 @@ var diveSync = function(dir, opt, action) {
     list.sort().some(function (file) {
       if (opt.all || file[0] != '.') {
         // full path of that file
-        var path = dir + '/' + file;
+        var path = dir + OS_PATH_SEP + file;
 
         // get the file's stats
         var stat = fs.statSync(path);
